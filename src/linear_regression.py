@@ -30,10 +30,6 @@ def data_iter(batch_size, features, labels):
         yield features[batch_indices], labels[batch_indices]
 
 
-w = torch.normal(0, 0.01, size=(2, 1), requires_grad=True)
-b = torch.zeros(1, requires_grad=True)
-
-
 def linreg(X, w, b):
     """The linear regression model."""
     return torch.matmul(X, w)+b
@@ -52,23 +48,25 @@ def sgd(params, lr, batch_size):
             param.grad.zero_()
 
 
-# The model is defined, we can now implement the training loop.
-lr = 0.03
-num_epochs = 3
-batch_size = 10
-net = linreg
-loss = squared_loss
+if __name__ == '__main__':
+    # The model is defined, we can now implement the training loop.
+    lr = 0.03
+    num_epochs = 3
+    batch_size = 10
+    net = linreg
+    loss = squared_loss
+    w = torch.normal(0, 0.01, size=(2, 1), requires_grad=True)
+    b = torch.zeros(1, requires_grad=True)
 
+    for epoch in range(num_epochs):
+        for X, y in data_iter(batch_size, features, labels):
+            # Compute gradients and update parameters
+            l = loss(net(X, w, b), y)
+            l.sum().backward()
+            sgd([w, b], lr, batch_size)
+        with torch.no_grad():
+            train_l = loss(net(features, w, b), labels)
+            print(f'epoch {epoch+1}, loss {float(train_l.mean()):f}')
 
-for epoch in range(num_epochs):
-    for X, y in data_iter(batch_size, features, labels):
-        # Compute gradients and update parameters
-        l = loss(net(X, w, b), y)
-        l.sum().backward()
-        sgd([w, b], lr, batch_size)
-    with torch.no_grad():
-        train_l = loss(net(features, w, b), labels)
-        print(f'epoch {epoch+1}, loss {float(train_l.mean()):f}')
-
-print(f'error in estimating w: {true_w - w.reshape(true_w.shape)}')
-print(f'error in estimating b: {true_b - b}')
+    print(f'error in estimating w: {true_w - w.reshape(true_w.shape)}')
+    print(f'error in estimating b: {true_b - b}')
