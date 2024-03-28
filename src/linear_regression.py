@@ -6,8 +6,8 @@ from d2l import torch as d2l
 def synthetic_data(w, b, num_examples):
     x = torch.normal(0, 1, (num_examples, len(w)))
     y = torch.matmul(x, w)+b
-    y += torch.normal(0, 0.01, y.shape)
-    return x, y.reshape((-1, 1))
+    y += torch.normal(0, 0.01, y.shape)  # add noise
+    return x, y.reshape((-1, 1))  # -1 means the size is inferred
 
 
 true_w = torch.tensor([2, -3.4])
@@ -29,12 +29,6 @@ def data_iter(batch_size, features, labels):
             indices[i:min(i+batch_size, num_examples)])
         yield features[batch_indices], labels[batch_indices]
 
-
-batch_size = 10
-
-for X, y in data_iter(batch_size, features, labels):
-    print(X, '\n', y)
-    break
 
 w = torch.normal(0, 0.01, size=(2, 1), requires_grad=True)
 b = torch.zeros(1, requires_grad=True)
@@ -61,8 +55,10 @@ def sgd(params, lr, batch_size):
 # The model is defined, we can now implement the training loop.
 lr = 0.03
 num_epochs = 3
+batch_size = 10
 net = linreg
 loss = squared_loss
+
 
 for epoch in range(num_epochs):
     for X, y in data_iter(batch_size, features, labels):
