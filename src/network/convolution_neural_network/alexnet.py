@@ -15,6 +15,12 @@ from d2l import torch as d2l
 # 11. 第二个全连接层：输出通道为4096，激活函数为relu
 # 12. 输出层：输出通道为10，激活函数为relu
 
+# AlexNet和LeNet的区别：
+# 1. AlexNet使用了更多的卷积层和全连接层，使得网络更深
+# 2. AlexNet使用了丢弃法来控制全连接层的模型复杂度
+# 3. AlexNet引入了ReLU激活函数来增加非线性
+# 4. AlexNet使用MaxPooling来控制过拟合
+
 
 def alexnet():
     return nn.Sequential(
@@ -36,3 +42,10 @@ net = alexnet()
 for layer in net:
     X = layer(X)
     print(layer.__class__.__name__, 'output shape:\t', X.shape)
+
+batch_size = 128
+train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size, resize=224)
+lr, num_epochs = 0.01, 10
+d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
+# output:
+# loss 0.327, train acc 0.880, test acc 0.877

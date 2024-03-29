@@ -16,3 +16,6 @@
     池化层-pooling_layer
     LeNet实现-lenet
     AlexNet实现-alexnet
+    VGG实现-vgg
+    NiN实现-nin
+    GoogLeNet实现-googlenet
