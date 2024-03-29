@@ -14,3 +14,5 @@
     填充和步幅-padding_stride
     多个输入通道和输出通道-multiple_input_output_channels
     池化层-pooling_layer
+    LeNet实现-lenet
+    AlexNet实现-alexnet
