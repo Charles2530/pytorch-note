@@ -148,3 +148,18 @@ class MyLinear(nn.Module):
 
 # dense = MyLinear(5, 3)
 # print(dense.weight)
+
+# 读取和存储
+# X = torch.ones(2, 3)
+# torch.save(X, 'X-file')
+# X2 = torch.load('X-file')
+# print(X2)
+
+# net = MLP()
+# X = torch.randn(size=(2, 20))
+# Y = net(X)
+# torch.save(net.state_dict(), 'mlp.params')
+# clone = MLP()
+# clone.load_state_dict(torch.load('mlp.params'))
+# clone.eval()
+# print(clone(X) == Y)
