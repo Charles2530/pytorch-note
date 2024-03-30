@@ -27,3 +27,5 @@
     锚框-anchor_box
     区域卷积神经网络-rcnn
     SSD实现-ssd
+7.  语义分割-semantic_segmentation
+    转置卷积-transposed_convolution
