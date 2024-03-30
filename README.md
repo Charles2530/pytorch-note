@@ -25,3 +25,5 @@
 5. 微调-fine_tuning
 6.  目标检测和物体检测-object_detection
     锚框-anchor_box
+    区域卷积神经网络-rcnn
+    SSD实现-ssd
