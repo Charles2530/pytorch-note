@@ -29,3 +29,8 @@
     SSD实现-ssd
 7.  语义分割-semantic_segmentation
     转置卷积-transposed_convolution
+    全连接神经网络全卷积网络-fcn
+    样式迁移-style_transfer
+8.  序列模型-sequence_model
+    文本预处理-text_preprocessing
+    语言模型-language_model 
