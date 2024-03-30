@@ -13,7 +13,7 @@
 3.  卷积神经网络实现-convolutional_neural_network
     填充和步幅-padding_stride
     多个输入通道和输出通道-multiple_input_output_channels
-    池化层-pooling_layer
+    池化层-pooling_layer 
     LeNet实现-lenet
     AlexNet实现-alexnet
     VGG实现-vgg
@@ -21,3 +21,7 @@
     GoogLeNet实现-googlenet
     批量归一化-batch_normalization
     残差网络-resnet
+4. 数据增强-data_augmentation
+5. 微调-fine_tuning
+6.  目标检测和物体检测-object_detection
+    锚框-anchor_box
