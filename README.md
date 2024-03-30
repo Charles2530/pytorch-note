@@ -4,7 +4,7 @@
 1. 线性回归实现-linear_regression
 2. softmax回归实现-softmax_regression
 3. 多层感知机实现-multilayer_perceptron
-4. 欠拟合和过拟-underfitting_overfitting
+4. 欠拟合和过拟合-underfitting_overfitting
 5. 权重衰减实现-weight_decay
 6. 丢弃法实现-dropout
 ## network
@@ -39,5 +39,8 @@
     长短期记忆网络-lstm
     深度循环神经网络-deep_rnn
     双向循环神经网络-bidirectional_rnn
-9. 编码器解码器-encoder_decoder
-10. 序列到序列学习-seq2seq
+9.  编码器解码器-encoder_decoder
+    序列到序列学习-seq2seq
+    注意力机制-attention_mechanism
+    使用注意力机制的seq2seq-attention_seq2seq
+    自注意力机制-self_attention
