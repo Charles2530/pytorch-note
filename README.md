@@ -35,3 +35,7 @@
     文本预处理-text_preprocessing
     语言模型-language_model 
     循环神经网络-rnn
+    门控循环单元-gru
+    长短期记忆网络-lstm
+    深度循环神经网络-deep_rnn
+    双向循环神经网络-bidirectional_rnn
