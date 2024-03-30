@@ -19,3 +19,5 @@
     VGG实现-vgg
     NiN实现-nin
     GoogLeNet实现-googlenet
+    批量归一化-batch_normalization
+    残差网络-resnet
