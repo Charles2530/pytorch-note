@@ -1,20 +1,20 @@
 import torch
 from torch import nn
 from d2l import torch as d2l
-from text_preprocessing import read_time_machine
+from text_preprocessing import read_time_machine, load_corpus_time_machine
 import random
 # 语言模型：字符级循环神经网络
 # 语言模型是自然语言处理的重要技术，它可以用来预测文本序列
 # 语言模型的输入是一个文本序列，输出也是一个文本序列
 # 使用统计方法时，语言模型通常基于 n 元语法（n-gram）
-tokens = d2l.tokenize(read_time_machine())
-corpus = [token for line in tokens for token in line]
-vocab = d2l.Vocab(corpus)
-print(vocab.token_freqs[:10])
+# tokens = d2l.tokenize(read_time_machine())
+# corpus = [token for line in tokens for token in line]
+# vocab = d2l.Vocab(corpus)
+# print(vocab.token_freqs[:10])
 
-freqs = [freq for token, freq in vocab.token_freqs]
-d2l.plot(freqs, xlabel='token: x', ylabel='frequency: n(x)', xscale='log',
-         yscale='log')
+# freqs = [freq for token, freq in vocab.token_freqs]
+# d2l.plot(freqs, xlabel='token: x', ylabel='frequency: n(x)', xscale='log',
+#          yscale='log')
 # d2l.plt.show()
 
 # 下面几行运行会报错
@@ -63,8 +63,8 @@ def seq_data_iter_sequential(corpus, batch_size, num_steps):
         yield X, Y
 
 
-for X, Y in seq_data_iter_random(list(range(10)), 2, 3):
-    print('X:', X, '\nY:', Y)
+# for X, Y in seq_data_iter_random(list(range(10)), 2, 3):
+#     print('X:', X, '\nY:', Y)
 
 
 class SeqDataLoader:
@@ -73,7 +73,7 @@ class SeqDataLoader:
             self.data_iter_fn = seq_data_iter_random
         else:
             self.data_iter_fn = seq_data_iter_sequential
-        self.corpus, self.vocab = d2l.load_corpus_time_machine(max_tokens)
+        self.corpus, self.vocab = load_corpus_time_machine(max_tokens)
         self.batch_size, self.num_steps = batch_size, num_steps
 
     def __iter__(self):

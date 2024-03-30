@@ -12,10 +12,10 @@ def read_time_machine():
     return [re.sub('[^A-Za-z]+', ' ', line).strip().lower() for line in lines]
 
 
-lines = read_time_machine()
-print(f'# text lines: {len(lines)}')
-print(lines[0])
-print(lines[10])
+# lines = read_time_machine()
+# print(f'# text lines: {len(lines)}')
+# print(lines[0])
+# print(lines[10])
 
 
 def tokenize(lines, token='word'):
@@ -28,9 +28,9 @@ def tokenize(lines, token='word'):
         print('错误：未知令牌类型：' + token)
 
 
-tokens = tokenize(lines)
-for i in range(11):
-    print(tokens[i])
+# tokens = tokenize(lines)
+# for i in range(11):
+#     print(tokens[i])
 
 
 def count_corpus(tokens):
@@ -78,11 +78,11 @@ class Vocab:
         return [self.idx_to_token[index] for index in indices]
 
 
-vocab = Vocab(tokens)
-print(list(vocab.token_to_idx.items())[:10])
-for i in [0, 10]:
-    print('words:', tokens[i])
-    print('indices:', vocab[tokens[i]])
+# vocab = Vocab(tokens)
+# print(list(vocab.token_to_idx.items())[:10])
+# for i in [0, 10]:
+#     print('words:', tokens[i])
+#     print('indices:', vocab[tokens[i]])
 
 
 def load_corpus_time_machine(max_tokens=-1):
@@ -98,5 +98,5 @@ def load_corpus_time_machine(max_tokens=-1):
     return corpus, vocab
 
 
-corpus, vocab = load_corpus_time_machine()
-print(len(corpus), len(vocab))
+# corpus, vocab = load_corpus_time_machine()
+# print(len(corpus), len(vocab))

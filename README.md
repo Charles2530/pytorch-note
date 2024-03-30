@@ -34,3 +34,4 @@
 8.  序列模型-sequence_model
     文本预处理-text_preprocessing
     语言模型-language_model 
+    循环神经网络-rnn
