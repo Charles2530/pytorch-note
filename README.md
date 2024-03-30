@@ -39,3 +39,5 @@
     长短期记忆网络-lstm
     深度循环神经网络-deep_rnn
     双向循环神经网络-bidirectional_rnn
+9. 编码器解码器-encoder_decoder
+10. 序列到序列学习-seq2seq
