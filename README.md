@@ -48,3 +48,5 @@
 11. BERT实现-bert<br>
 ## method
 1. 使用selenuim爬取数据-selenuim_crawl
+2. Baggings集成学习-bagging
+3. Stacking集成学习-stacking

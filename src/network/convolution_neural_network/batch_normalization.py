@@ -31,6 +31,7 @@ def batch_norm(X, gamma, beta, moving_mean, moving_var, eps, momentum):
             # 使用二维卷积层的情况，计算通道维上（axis=1）的均值和方差。这里我们需要保持
             # X的形状以便后面可以做广播运算
             mean = X.mean(dim=(0, 2, 3), keepdim=True)
+            # 这里保留第二维
             var = ((X - mean) ** 2).mean(dim=(0, 2, 3), keepdim=True)
         # 训练模式下使用当前的均值和方差做标准化
         X_hat = (X - mean) / torch.sqrt(var + eps)
