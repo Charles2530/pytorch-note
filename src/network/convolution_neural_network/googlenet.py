@@ -31,9 +31,13 @@ class Incption(nn.Module):
         self.p4_2 = nn.Conv2d(in_channels, c4, kernel_size=1)
 
     def forward(self, x):
+        # 支路1只包含一个1x1卷积
         p1 = F.relu(self.p1_1(x))
+        # 支路2包含一个1x1卷积和一个3x3卷积
         p2 = F.relu(self.p2_2(F.relu(self.p2_1(x))))
+        # 支路3包含一个1x1卷积和一个5x5卷积
         p3 = F.relu(self.p3_2(F.relu(self.p3_1(x))))
+        # 支路4包含一个最大池化层和一个1x1卷积
         p4 = F.relu(self.p4_2(self.p4_1(x)))
         return torch.cat((p1, p2, p3, p4), dim=1)
 

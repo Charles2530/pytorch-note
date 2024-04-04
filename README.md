@@ -44,5 +44,7 @@
     注意力机制-attention_mechanism<br>
     使用注意力机制的seq2seq-attention_seq2seq<br>
     自注意力机制-self_attention<br>
-10.  Transformer-transformer<br>
+10. Transformer-transformer<br>
 11. BERT实现-bert<br>
+## method
+1. 使用selenuim爬取数据-selenuim_crawl

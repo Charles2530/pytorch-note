@@ -15,6 +15,8 @@ from rnn_nn import RNNModel
 # Ct = Ft * Ct-1 + It * C~
 # Ht = Ot * tanh(Ct)
 # 其中Ct是记忆细胞，Ht是隐藏状态，Ft是忘记门，It是输入门，Ot是输出门，C~是候选记忆细胞
+# 记忆细胞是指阅读到当前LSTM单元的信息状态或者记忆状态
+# 隐藏状态是指LSTM单元的输出
 # 候选记忆细胞计算公式：
 # C~ = tanh(Wxc * Xt + Whc * Ht-1 + Bc)
 # 忘记门计算公式：

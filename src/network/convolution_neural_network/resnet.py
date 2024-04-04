@@ -30,6 +30,12 @@ from torch.nn import functional as F
 class Residual(nn.Module):
     def __init__(self, input_channels, num_channels, use_1x1conv=False, strides=1):
         super(Residual, self).__init__()
+        """
+        input_channels: 输入通道数
+        num_channels: 输出通道数
+        use_1x1conv: 是否使用1*1卷积层
+        strides: 步幅
+        """
         # 1*1卷积层
         self.conv1 = nn.Conv2d(input_channels, num_channels,
                                kernel_size=3, padding=1, stride=strides)
@@ -42,11 +48,13 @@ class Residual(nn.Module):
                 input_channels, num_channels, kernel_size=1, stride=strides)
         else:
             self.conv3 = None
+        # 批量归一化
         self.bn1 = nn.BatchNorm2d(num_channels)
         self.bn2 = nn.BatchNorm2d(num_channels)
         self.relu = nn.ReLU(inplace=True)
 
     def forward(self, X):
+        # 使用+号连接跨层的数据通道，使用Relu激活函数
         Y = F.relu(self.bn1(self.conv1(X)))
         Y = self.bn2(self.conv2(Y))
         if self.conv3:

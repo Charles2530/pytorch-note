@@ -2,9 +2,13 @@ import random
 import torch
 from d2l import torch as d2l
 
+# synthetic data generation
+
 
 def synthetic_data(w, b, num_examples):
+    # normal is used to generate random numbers with a mean of 0 and a standard deviation of 1
     x = torch.normal(0, 1, (num_examples, len(w)))
+    # @ is used for matrix multiplication,so this can be replaced by torch.matmul(x, w)+b
     y = torch.matmul(x, w)+b
     y += torch.normal(0, 0.01, y.shape)  # add noise
     return x, y.reshape((-1, 1))  # -1 means the size is inferred
@@ -14,7 +18,9 @@ true_w = torch.tensor([2, -3.4])
 true_b = 4.2
 features, labels = synthetic_data(true_w, true_b, 1000)
 print('features:', features[0], '\nlabel:', labels[0])
+# set_figsize is used to set the size of the graph,default size is (3.5, 2.5)
 d2l.set_figsize()
+# scatter is used to draw a scatter plot
 d2l.plt.scatter(features[:, 1].detach().numpy(),
                 labels.detach().numpy(), 1)
 # d2l.plt.show()
