@@ -17,6 +17,7 @@ for i in range(max_degree):
     poly_features[:, i] /= math.gamma(i + 1)  # `gamma(n)` = (n-1)!
 # Shape of `labels`: (`n_train` + `n_test`,)
 labels = np.dot(poly_features, true_w)
+# np.random.normal is used to add noise
 labels += np.random.normal(scale=0.1, size=labels.shape)
 
 true_w, features, poly_features, labels = [

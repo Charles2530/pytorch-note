@@ -12,10 +12,14 @@ test_iter = d2l.load_array(test_data, batch_size, is_train=False)
 
 def train_concise(wd):
     net = nn.Sequential(nn.Linear(num_inputs, 1))
+    # The weight parameter has been decayed. Weight names generally end with "weight"
     for param in net.parameters():
+        # randomly initialize the weight
         param.data.normal_()
     loss = nn.MSELoss()
     num_epochs, lr = 100, 0.003
+    # weight decay is used to prevent overfitting
+    # net[0].bias is L2 norm penalty
     trainer = torch.optim.SGD([{
         "params": net[0].weight,
         'weight_decay': wd}, {

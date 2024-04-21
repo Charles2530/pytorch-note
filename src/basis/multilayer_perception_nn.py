@@ -2,6 +2,7 @@ import torch
 from torch import nn
 from d2l import torch as d2l
 from softmax_regression import train_ch3
+# The following code initializes the model parameters. The input layer has 784
 net = nn.Sequential(nn.Flatten(), nn.Linear(784, 256), nn.ReLU(),
                     nn.Linear(256, 10))
 

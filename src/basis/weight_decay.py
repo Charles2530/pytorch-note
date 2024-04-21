@@ -1,7 +1,8 @@
 import torch
 from torch import nn
 from d2l import torch as d2l
-
+# weight decay is also known as L2 norm regularization
+# is used to prevent overfitting
 n_train, n_test, num_inputs, batch_size = 20, 100, 200, 5
 true_w, true_b = torch.ones((num_inputs, 1)) * 0.01, 0.05
 train_data = d2l.synthetic_data(true_w, true_b, n_train)
@@ -17,6 +18,7 @@ def init_params():
 
 
 def l2_penalty(w):
+    """L2 norm penalty"""
     return torch.sum(w.pow(2)) / 2
 
 
@@ -28,7 +30,9 @@ def train(lambd):
                             xlim=[5, num_epochs], legend=['train', 'test'])
     for epoch in range(num_epochs):
         for X, y in train_iter:
+            # enable_grad is used to enable the gradient calculation
             with torch.enable_grad():
+                # l2_penalty is used to prevent overfitting
                 l = loss(net(X), y)+lambd*l2_penalty(w)
             l.sum().backward()
             d2l.sgd([w, b], lr, batch_size)

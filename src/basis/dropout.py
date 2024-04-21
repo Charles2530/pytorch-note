@@ -12,6 +12,7 @@ def dropout_layer(X, dropout):
     # In this case, all elements are kept
     if dropout == 0:
         return X
+    # Generate a mask and scale by 1/(1.0-dropout) to preserve the expected
     mask = (torch.randn(X.shape) > dropout).float()
     return mask * X / (1.0 - dropout)
 
@@ -21,10 +22,12 @@ x = torch.arange(16, dtype=torch.float32).reshape((2, 8))
 print(dropout_layer(x, 0.))
 
 num_inputs, num_outputs, num_hiddens1, num_hiddens2 = 784, 10, 256, 256
+# dropout1, dropout2 is used to prevent overfitting
 dropout1, dropout2 = 0.2, 0.5
 
 
 class Net(nn.Module):
+    # in nn.Module, __init__ is used to define the layers
     def __init__(self, num_inputs, num_outputs, num_hiddens1, num_hiddens2,
                  is_training=True):
         super(Net, self).__init__()
@@ -37,7 +40,10 @@ class Net(nn.Module):
         self.dropout1 = nn.Dropout(dropout1)
         self.dropout2 = nn.Dropout(dropout2)
 
+    # in forward, the layers are used to define the forward pass
+    # we can use X as input and return the output
     def forward(self, X):
+        # relu can be used serveral times,but only be set in __init__ once
         H1 = self.relu(self.lin1(X.reshape((-1, self.num_inputs))))
         if self.training:
             H1 = self.dropout1(H1)

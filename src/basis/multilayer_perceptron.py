@@ -9,6 +9,8 @@ train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)
 
 num_inputs, num_outputs, num_hiddens = 784, 10, 256
 
+# nn.Parameter is a kind of Tensor, and will be automatically registered as module's parameter
+# randn returns a tensor filled with random numbers from a normal distribution with mean 0 and variance 1
 W1 = nn.Parameter(torch.randn(
     num_inputs, num_hiddens, requires_grad=True) * 0.01)
 b1 = nn.Parameter(torch.zeros(num_hiddens, requires_grad=True))
@@ -25,7 +27,9 @@ def relu(X):
 
 
 def net(X):
+    # in this network,there are two hidden layers
     X = X.reshape((-1, num_inputs))
+    # between layers, we use the ReLU activation function
     H = relu(X @ W1 + b1)
     return (H @ W2 + b2)
 

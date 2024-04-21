@@ -6,12 +6,14 @@ from softmax_regression import train_ch3
 
 num_inputs, num_outputs, num_hiddens1, num_hiddens2 = 784, 10, 256, 256
 dropout1, dropout2 = 0.2, 0.5
+# the net structure is Flattern->Linear->Relu->Dropout->Linear->Relu->Dropout->Linear
 net = nn.Sequential(
     nn.Flatten(), nn.Linear(784, 256), nn.ReLU(), nn.Dropout(dropout1),
     nn.Linear(256, 256), nn.ReLU(), nn.Dropout(dropout2), nn.Linear(256, 10))
 
 
 def init_weights(m):
+    # typical initialization
     if type(m) == nn.Linear:
         nn.init.normal_(m.weight, std=0.01)
 

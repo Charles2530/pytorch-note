@@ -11,6 +11,7 @@ features, labels = d2l.synthetic_data(true_w, true_b, 1000)
 
 
 def load_array(data_arrays, batch_size, is_train=True):
+    # data_arrays is a list of data arrays
     dataset = data.TensorDataset(*data_arrays)
     return data.DataLoader(dataset, batch_size, shuffle=is_train)
 
@@ -18,10 +19,13 @@ def load_array(data_arrays, batch_size, is_train=True):
 if __name__ == '__main__':
     batch_size = 10
     data_iter = load_array((features, labels), batch_size)
+    # next(iter(data_iter)) is used to get the first batch of data
     next(iter(data_iter))
     # Defining the Model
-
+    # The model is defined by an nn.Sequential, which is a chain of layers. Since our model,
+    # within this single layer, is just a linear regression, we define a single nn.Linear
     net = nn.Sequential(nn.Linear(2, 1))
+    # Initializing Model Parameters
     net[0].weight.data.normal_(0, 0.01)
     net[0].bias.data.fill_(0)
 
@@ -36,7 +40,12 @@ if __name__ == '__main__':
     for epoch in range(num_epochs):
         for X, y in data_iter:
             l = loss(net(X), y)
+            # Because l is a vector whose elements are the losses for each example in the
+            # minibatch, calling l.backward() adds together the gradients of all the examples
+            # and stores the result in the model parameters.
             trainer.zero_grad()
+            # zero_grad clears the gradients of the model parameters to prevent them from
+            # accumulating during multiple iterations.
             l.backward()
             trainer.step()
         l = loss(net(features), labels)

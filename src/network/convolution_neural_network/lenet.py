@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 from d2l import torch as d2l
-# LeNet的典型应用是手写数字识别
+# LeNet的典型应用是手写数字识别,数据集为MNIST
 # LeNet是早期成功的神经网络，先使用卷积层来学习图片空间信息，然后使用全连接层来进行分类
 # LeNet的网络结构如下：
 # 1. 输入层：输入的图片大小为32*32
@@ -46,6 +46,7 @@ def evaluate_accuracy_gpu(net, data_iter, device=None):  # @save
     """使用GPU计算模型在数据集上的精度。"""
     if isinstance(net, torch.nn.Module):
         net.eval()  # 设置为评估模式
+        # 如果未指定设备，则使用net的设备
         if not device:
             device = next(iter(net.parameters())).device
     # 正确预测的数量，总预测的数量

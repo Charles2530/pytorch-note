@@ -8,7 +8,7 @@ from d2l import torch as d2l
 def synthetic_data(w, b, num_examples):
     # normal is used to generate random numbers with a mean of 0 and a standard deviation of 1
     x = torch.normal(0, 1, (num_examples, len(w)))
-    # @ is used for matrix multiplication,so this can be replaced by torch.matmul(x, w)+b
+    # @ is used for matrix multiplication,so this can be replaced by torch.matmul(x, w) + b + epsilon
     y = torch.matmul(x, w)+b
     y += torch.normal(0, 0.01, y.shape)  # add noise
     return x, y.reshape((-1, 1))  # -1 means the size is inferred
@@ -29,10 +29,12 @@ d2l.plt.scatter(features[:, 1].detach().numpy(),
 def data_iter(batch_size, features, labels):
     num_examples = len(features)
     indices = list(range(num_examples))
+    # The examples are read at random, in no particular order
     random.shuffle(indices)
     for i in range(0, num_examples, batch_size):
         batch_indices = torch.tensor(
             indices[i:min(i+batch_size, num_examples)])
+        # yield is used to return a generator
         yield features[batch_indices], labels[batch_indices]
 
 
@@ -48,9 +50,14 @@ def squared_loss(y_hat, y):
 
 def sgd(params, lr, batch_size):
     """Minibatch stochastic gradient descent."""
+    # torch.no_grad() is used to indicate to PyTorch that we do not want to track gradients during the corresponding block of code.
+    # during this period, the gradient will not be updated
     with torch.no_grad():
         for param in params:
+            # update the parameter using the gradient and learning rate
+            # because squared_loss isn't divided by batch_size,so we need to divide it here
             param -= lr*param.grad/batch_size
+            # clear the gradient after updating the parameter
             param.grad.zero_()
 
 
@@ -61,6 +68,7 @@ if __name__ == '__main__':
     batch_size = 10
     net = linreg
     loss = squared_loss
+    # The parameter w is initialized with random values
     w = torch.normal(0, 0.01, size=(2, 1), requires_grad=True)
     b = torch.zeros(1, requires_grad=True)
 
@@ -70,9 +78,11 @@ if __name__ == '__main__':
             l = loss(net(X, w, b), y)
             l.sum().backward()
             sgd([w, b], lr, batch_size)
+        # torch.no_grad() is used to indicate to PyTorch that we do not want to track gradients during the corresponding block of code.
         with torch.no_grad():
             train_l = loss(net(features, w, b), labels)
             print(f'epoch {epoch+1}, loss {float(train_l.mean()):f}')
 
+    # compare the estimated parameters with the actual parameters
     print(f'error in estimating w: {true_w - w.reshape(true_w.shape)}')
     print(f'error in estimating b: {true_b - b}')
