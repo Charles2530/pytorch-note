@@ -11,6 +11,7 @@ test_iter = d2l.load_array(test_data, batch_size, is_train=False)
 
 
 def train_concise(wd):
+    """Train a linear regression model with weight decay"""
     net = nn.Sequential(nn.Linear(num_inputs, 1))
     # The weight parameter has been decayed. Weight names generally end with "weight"
     for param in net.parameters():

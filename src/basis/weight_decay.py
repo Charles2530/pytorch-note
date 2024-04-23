@@ -43,4 +43,7 @@ def train(lambd):
 
 
 if __name__ == '__main__':
+    # lambd is the hyperparameter,used to control the weight decay
+    # ensure lambd*lr < 1 to keep the weight decay term small
+    # typical lambd values are 0, 0.1, 1, 10
     train(lambd=3)
