@@ -1,90 +1,240 @@
-# Setup feedback system
+from statsmodels.tsa.deterministic import CalendarFourier
+from warnings import simplefilter
+from xgboost import XGBRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
 from sklearn.linear_model import LinearRegression
-import seaborn as sns
-import numpy as np
-import matplotlib.pyplot as plt
+import joblib
+from statsmodels.tsa.deterministic import DeterministicProcess
 import pandas as pd
+import numpy as np
 from pathlib import Path
 
-
-# Setup notebook
-
-
-data_dir = Path('../input/ts-course-data/')
-comp_dir = Path('../input/store-sales-time-series-forecasting')
-
-book_sales = pd.read_csv(
-    data_dir / 'book_sales.csv',
-    index_col='Date',
-    parse_dates=['Date'],
-).drop('Paperback', axis=1)
-book_sales['Time'] = np.arange(len(book_sales.index))
-book_sales['Lag_1'] = book_sales['Hardcover'].shift(1)
-book_sales = book_sales.reindex(columns=['Hardcover', 'Time', 'Lag_1'])
-
-ar = pd.read_csv(data_dir / 'ar.csv')
-
-dtype = {
+simplefilter(action='ignore')
+comp_dir = Path(__file__).resolve().parents[1].joinpath('data')
+# print(comp_dir)
+train_df = pd.read_csv(comp_dir.joinpath('train.csv'),
+                       usecols=['store_nbr', 'family',
+                                'date', 'sales', 'onpromotion'],
+                       dtype={
+                           'store_nbr': 'category',
+    'family': 'category',
+    'sales': np.float32,
+    'onpromotion': np.uint32
+},
+    parse_dates=['date'],  # parse_date is used to convert date to datetime
+    infer_datetime_format=True,  # to speed up datetime parsing
+)
+# below used 'D' to convert date to datetime,'D' means day
+train_df['date'] = train_df.date.dt.to_period('D')
+# print(train_df.head())
+train_df = (train_df.set_index(
+    ['date', 'family', 'store_nbr']
+).sort_index())
+# print(train_df.head())
+test_df = pd.read_csv(comp_dir.joinpath('test.csv'),
+                      dtype={
     'store_nbr': 'category',
     'family': 'category',
-    'sales': 'float32',
-    'onpromotion': 'uint64',
-}
-store_sales = pd.read_csv(
-    comp_dir / 'train.csv',
-    dtype=dtype,
+    'onpromotion': np.uint32
+},
     parse_dates=['date'],
-    infer_datetime_format=True,
+    infer_datetime_format=True
 )
-store_sales = store_sales.set_index('date').to_period('D')
-store_sales = store_sales.set_index(['store_nbr', 'family'], append=True)
-average_sales = store_sales.groupby('date').mean()['sales']
+test_df['date'] = test_df.date.dt.to_period('D')
+test_df = (test_df.set_index(
+    ['date', 'family', 'store_nbr']
+).sort_index())
+holidays_events = pd.read_csv(comp_dir.joinpath('holidays_events.csv'),
+                              dtype={
+    'type': 'category',
+    'locate': 'category',
+    'locale_name': 'category',
+    'description': 'category',
+    'transferred': 'bool',
+},
+    parse_dates=['date'],
+    infer_datetime_format=True
+)
+holidays_events = holidays_events.set_index('date').to_period('D')
+# print(holidays_events.head())
+"""Baseline Submission"""
+X_train = train_df.copy()
+y_train = (
+    X_train.unstack(['family', 'store_nbr']).loc[:, "sales"]
+)
+index_ = X_train.index.get_level_values('date').unique()
+STORE = '1'
+FAMILY = 'BREAD/BAKERY'
+START = '2016-01-01'
+END = '2016-06-15'
+y_true = (y_train
+          .stack(['family', 'store_nbr'])
+          .to_frame()
+          .query('family == @FAMILY and store_nbr == @STORE')
+          .reset_index(['family', 'store_nbr'], drop=True)
+          .rename(columns={0: 'ground_truth'})
+          .loc[START:END, :]
+          .squeeze()
+          )
 
-fig, ax = plt.subplots()
-ax.plot('Time', 'Hardcover', data=book_sales, color='0.75')
-ax = sns.regplot(x='Time', y='Hardcover', data=book_sales,
-                 ci=None, scatter_kws=dict(color='0.25'))
-ax.set_title('Time Plot of Hardcover Sales')
+dp = DeterministicProcess(
+    index=index_,
+    constant=True,
+    order=1,
+    drop=True
+)
+X_time = dp.in_sample()
+X_time_test = dp.out_of_sample(steps=16)
+X_time_test.index.name = 'date'
+base_model = joblib.load(Path(__file__).resolve(
+).parents[1].joinpath('model', 'baseline_model.pkl'))
+y_submit = pd.DataFrame(
+    base_model.predict(X_time_test),
+    index=X_time_test.index,
+    columns=y_train.columns
+).clip(0.0)
+baseline_submission = (y_submit.stack(['family', 'store_nbr']).
+                       to_frame().join(test_df.id)
+                       .rename(columns={0: 'sales'})
+                       .reset_index(drop=True)
+                       .reindex(columns=['id', 'sales'])
+                       )
+baseline_submission.to_csv(
+    comp_dir.joinpath('baseline_submission.csv'), index=False)
 
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(11, 5.5), sharex=True)
-ax1.plot(ar['ar1'])
-ax1.set_title('Series 1')
-ax2.plot(ar['ar2'])
-ax2.set_title('Series 2')
+"""submission with seasons accounted"""
+X = y_true.to_frame()
+X["day"] = X.index.dayofweek
+X["week"] = X.index.week
+X_seasonal = dp.in_sample()
+day_of_week = pd.Series(X_seasonal.index.dayofweek, index=index_)
+X_day_of_week = pd.get_dummies(day_of_week, prefix='day_of_week')
+X_seasonal = pd.concat([X_seasonal, X_day_of_week], axis=1)
+fourier = CalendarFourier(freq='A', order=10)
+dp_fourier = DeterministicProcess(
+    index=index_,
+    constant=False,
+    order=1,
+    seasonal=True,
+    additional_terms=[fourier],
+    drop=True
+)
+X_fourier = dp_fourier.in_sample()
+X_seasonal = pd.concat([X_seasonal, X_fourier], axis=1)
+
+holidays = (holidays_events.query('transferred == False')
+            .query("locale=='National'")
+            .loc[:, 'description']
+            .to_frame()
+            .assign(description=lambda x: x.description.cat.remove_unused_categories())
+            )
+duplicated_dates = holidays.index.duplicated(keep='first')
+holidays = holidays[~duplicated_dates]
+X_holidays = pd.get_dummies(holidays)
+X_seasonal = X_seasonal.join(X_holidays, on='date', how='left').fillna(0.0)
+
+X_seasonal_test = dp.out_of_sample(steps=16)
+X_seasonal_test.index.name = 'date'
+day_of_week = pd.Series(X_seasonal_test.index.dayofweek,
+                        index=X_seasonal_test.index)
+X_day_of_week = pd.get_dummies(day_of_week, prefix='day_of_week')
+X_seasonal_test = pd.concat([X_seasonal_test, X_day_of_week], axis=1)
+
+X_fourier_test = dp_fourier.out_of_sample(steps=16)
+X_seasonal_test = pd.concat([X_seasonal_test, X_fourier_test], axis=1)
+
+X_seasonal_test.index.name = 'date'
+X_seasonal_test = X_seasonal_test.join(
+    X_holidays, on='date', how='left').fillna(0.0)
+
+season_model = joblib.load(Path(__file__).resolve(
+).parents[1].joinpath('model', 'seasonal_model.pkl'))
+y_seasonal_forecast = pd.DataFrame(
+    season_model.predict(X_seasonal_test),
+    index=X_seasonal_test.index,
+    columns=y_train.columns
+).clip(0.0)
+seasonal_submission = (y_seasonal_forecast.stack(['family', 'store_nbr'])
+                       .to_frame().join(test_df.id)
+                       .rename(columns={0: 'sales'})
+                       .reset_index(drop=True)
+                       .reindex(columns=['id', 'sales'])
+                       )
+seasonal_submission.to_csv(
+    comp_dir.joinpath('seasonal_submission.csv'), index=False)
+"""submission with vulcano"""
 
 
-df = average_sales.to_frame()
+def make_lags(ts, lags, prefix=None):
+    return pd.concat({
+        f'{prefix}_lag_{lag}': ts.shift(lag) for lag in lags
+    }, axis=1)
 
-# YOUR CODE HERE: Create a time dummy
-time = np.arange(len(df.index))
 
-df['time'] = time
+vulcano = pd.DataFrame(
+    (X_time.index == '2016-04-16')*1.0,
+    index=index_,
+    columns=['vulcano'])
+X_vulcano_ = make_lags(vulcano.squeeze(), lags=range(22), prefix='vulcano')
+X_vulcano_ = X_vulcano_.fillna(0.0)
+X_vulcano = pd.concat([X_seasonal, X_vulcano_], axis=1)
+X_vulcano_test = X_seasonal_test.join(X_vulcano_, how='left').fillna(0.0)
+vulcano_model = joblib.load(Path(__file__).resolve(
+).parents[1].joinpath('model', 'vulcano_model.pkl'))
+y_vulcano_forecast = pd.DataFrame(
+    vulcano_model.predict(X_vulcano_test),
+    index=X_vulcano_test.index,
+    columns=y_train.columns
+).clip(0.0)
+vulcano_submission = (y_vulcano_forecast.stack(['family', 'store_nbr'])
+                      .to_frame().join(test_df.id)
+                      .rename(columns={0: 'sales'})
+                      .reset_index(drop=True)
+                      .reindex(columns=['id', 'sales'])
+                      )
+vulcano_submission.to_csv(
+    comp_dir.joinpath('vulcano_submission.csv'), index=False)
 
-# YOUR CODE HERE: Create training data
-X = df.loc[:, ['time']]  # features
-y = df.loc[:, 'sales']  # target
 
-# Train the model
-model = LinearRegression()
-model.fit(X, y)
+# """submission with multistep target"""
 
-# Store the fitted values as a time series with the same time index as
-# the training data
-y_pred = pd.Series(model.predict(X), index=X.index)
-df = average_sales.to_frame()
 
-# YOUR CODE HERE: Create a lag feature from the target 'sales'
-lag_1 = df['sales'].shift(1)
+def make_multistep_target(ts, steps):
+    return pd.concat({
+        f'y_step_{step+1}': ts.shift(-step) for step in range(steps)
+    }, axis=1)
 
-df['lag_1'] = lag_1  # add to dataframe
 
-X = df.loc[:, ['lag_1']].dropna()  # features
-y = df.loc[:, 'sales']  # target
-y, X = y.align(X, join='inner')  # drop corresponding values in target
+def fetch_forecast(data, START='2017-08-16', END='2017-08-31'):
+    X = data.loc[START]
+    DATES = pd.period_range(START, END)
+    index_to_rename = X.index.get_level_values(0).unique()[:len(DATES)]
+    rename_dict = dict(zip(index_to_rename, DATES))
+    forecast = X.rename(rename_dict, level=0).to_frame()
+    forecast.index = forecast.index.set_names('date', level=0)
+    return forecast
 
-# YOUR CODE HERE: Create a LinearRegression instance and fit it to X and y.
-model = LinearRegression()
 
-# YOUR CODE HERE: Create Store the fitted values as a time series with
-# the same time index as the training data
-y_pred = pd.Series(model.predict(X), index=X.index)
+y_train_multi = make_multistep_target(y_train, steps=16).dropna()
+y_train_multi, X_vulcano_cut = y_train_multi.align(
+    X_vulcano, join='inner', axis=0)
+model_multi = joblib.load(Path(__file__).resolve(
+).parents[1].joinpath('model', 'model_multi.pkl'))
+y_multi_fit = pd.DataFrame(
+    model_multi.predict(X_vulcano_cut),
+    index=X_vulcano_cut.index,
+    columns=y_train_multi.columns
+).clip(0.0)
+y_multi_forecast = pd.DataFrame(
+    model_multi.predict(X_vulcano_test),
+    index=X_vulcano_test.index,
+    columns=y_train_multi.columns
+).clip(0.0)
+multi_submission = (
+    fetch_forecast(y_multi_forecast).join(test_df.id).reset_index(drop=True)
+)
+multi_submission['sales'] = multi_submission.iloc[:, 0]
+multi_submission = multi_submission[['id', 'sales']]
+multi_submission.to_csv(
+    comp_dir.joinpath('multi_submission.csv'), index=False)
