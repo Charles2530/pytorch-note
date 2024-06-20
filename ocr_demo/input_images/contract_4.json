@@ -1,0 +1,1755 @@
+{
+  "tables_result": [
+    {
+      "header": [
+        {
+          "location": [
+            { "x": 94, "y": 387 },
+            { "x": 744, "y": 387 },
+            { "x": 744, "y": 414 },
+            { "x": 94, "y": 414 }
+          ],
+          "words": "基础上经过充分协商，就甲方购买乙方 模板等相关事宜，达成如下协议："
+        },
+        {
+          "location": [
+            { "x": 93, "y": 339 },
+            { "x": 872, "y": 338 },
+            { "x": 872, "y": 366 },
+            { "x": 93, "y": 367 }
+          ],
+          "words": "质量法》、《建设工程质量管理条例》及其他相关法律法规的规定，甲乙双方在平等自愿的"
+        }
+      ],
+      "body": [
+        {
+          "cell_location": [
+            { "x": 69, "y": 458 },
+            { "x": 170, "y": 457 },
+            { "x": 170, "y": 531 },
+            { "x": 68, "y": 531 }
+          ],
+          "row_start": 0,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 99, "y": 482 },
+                { "x": 139, "y": 482 },
+                { "x": 139, "y": 505 },
+                { "x": 99, "y": 505 }
+              ],
+              "word": "名称"
+            }
+          ],
+          "col_start": 0,
+          "words": "名称",
+          "row_end": 2,
+          "col_end": 1
+        },
+        {
+          "cell_location": [
+            { "x": 170, "y": 457 },
+            { "x": 350, "y": 457 },
+            { "x": 350, "y": 531 },
+            { "x": 170, "y": 531 }
+          ],
+          "row_start": 0,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 219, "y": 483 },
+                { "x": 298, "y": 483 },
+                { "x": 298, "y": 508 },
+                { "x": 219, "y": 508 }
+              ],
+              "word": "规格型号"
+            }
+          ],
+          "col_start": 1,
+          "words": "规格型号",
+          "row_end": 2,
+          "col_end": 2
+        },
+        {
+          "cell_location": [
+            { "x": 350, "y": 457 },
+            { "x": 429, "y": 457 },
+            { "x": 429, "y": 530 },
+            { "x": 350, "y": 531 }
+          ],
+          "row_start": 0,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 370, "y": 484 },
+                { "x": 409, "y": 484 },
+                { "x": 409, "y": 507 },
+                { "x": 370, "y": 507 }
+              ],
+              "word": "单位"
+            }
+          ],
+          "col_start": 2,
+          "words": "单位",
+          "row_end": 2,
+          "col_end": 3
+        },
+        {
+          "cell_location": [
+            { "x": 429, "y": 457 },
+            { "x": 542, "y": 456 },
+            { "x": 542, "y": 496 },
+            { "x": 429, "y": 496 }
+          ],
+          "row_start": 0,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 465, "y": 466 },
+                { "x": 504, "y": 466 },
+                { "x": 504, "y": 488 },
+                { "x": 465, "y": 488 }
+              ],
+              "word": "数量"
+            }
+          ],
+          "col_start": 3,
+          "words": "数量",
+          "row_end": 1,
+          "col_end": 4
+        },
+        {
+          "cell_location": [
+            { "x": 542, "y": 456 },
+            { "x": 699, "y": 456 },
+            { "x": 699, "y": 495 },
+            { "x": 542, "y": 496 }
+          ],
+          "row_start": 0,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 600, "y": 465 },
+                { "x": 638, "y": 465 },
+                { "x": 638, "y": 488 },
+                { "x": 600, "y": 488 }
+              ],
+              "word": "单价"
+            }
+          ],
+          "col_start": 4,
+          "words": "单价",
+          "row_end": 1,
+          "col_end": 5
+        },
+        {
+          "cell_location": [
+            { "x": 699, "y": 456 },
+            { "x": 891, "y": 456 },
+            { "x": 891, "y": 495 },
+            { "x": 699, "y": 495 }
+          ],
+          "row_start": 0,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 775, "y": 464 },
+                { "x": 814, "y": 464 },
+                { "x": 814, "y": 486 },
+                { "x": 775, "y": 486 }
+              ],
+              "word": "总价"
+            }
+          ],
+          "col_start": 5,
+          "words": "总价",
+          "row_end": 1,
+          "col_end": 6
+        },
+        {
+          "cell_location": [
+            { "x": 429, "y": 496 },
+            { "x": 542, "y": 496 },
+            { "x": 542, "y": 530 },
+            { "x": 429, "y": 531 }
+          ],
+          "row_start": 1,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 447, "y": 502 },
+                { "x": 524, "y": 502 },
+                { "x": 524, "y": 526 },
+                { "x": 447, "y": 526 }
+              ],
+              "word": "一次结构"
+            }
+          ],
+          "col_start": 3,
+          "words": "一次结构",
+          "row_end": 2,
+          "col_end": 4
+        },
+        {
+          "cell_location": [
+            { "x": 542, "y": 496 },
+            { "x": 699, "y": 495 },
+            { "x": 699, "y": 529 },
+            { "x": 542, "y": 530 }
+          ],
+          "row_start": 1,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 600, "y": 502 },
+                { "x": 639, "y": 502 },
+                { "x": 639, "y": 523 },
+                { "x": 600, "y": 523 }
+              ],
+              "word": "(元)"
+            }
+          ],
+          "col_start": 4,
+          "words": "(元)",
+          "row_end": 2,
+          "col_end": 5
+        },
+        {
+          "cell_location": [
+            { "x": 699, "y": 495 },
+            { "x": 891, "y": 495 },
+            { "x": 891, "y": 528 },
+            { "x": 699, "y": 529 }
+          ],
+          "row_start": 1,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 775, "y": 501 },
+                { "x": 814, "y": 501 },
+                { "x": 814, "y": 523 },
+                { "x": 775, "y": 523 }
+              ],
+              "word": "(元)"
+            }
+          ],
+          "col_start": 5,
+          "words": "(元)",
+          "row_end": 2,
+          "col_end": 6
+        },
+        {
+          "cell_location": [
+            { "x": 69, "y": 531 },
+            { "x": 170, "y": 532 },
+            { "x": 170, "y": 582 },
+            { "x": 70, "y": 581 }
+          ],
+          "row_start": 2,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 90, "y": 542 },
+                { "x": 149, "y": 542 },
+                { "x": 149, "y": 568 },
+                { "x": 90, "y": 568 }
+              ],
+              "word": "多层板"
+            }
+          ],
+          "col_start": 0,
+          "words": "多层板",
+          "row_end": 3,
+          "col_end": 1
+        },
+        {
+          "cell_location": [
+            { "x": 170, "y": 532 },
+            { "x": 350, "y": 531 },
+            { "x": 350, "y": 582 },
+            { "x": 170, "y": 582 }
+          ],
+          "row_start": 2,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 179, "y": 547 },
+                { "x": 309, "y": 547 },
+                { "x": 309, "y": 569 },
+                { "x": 179, "y": 569 }
+              ],
+              "word": "915*1830*13.5"
+            }
+          ],
+          "col_start": 1,
+          "words": "915*1830*13.5",
+          "row_end": 3,
+          "col_end": 2
+        },
+        {
+          "cell_location": [
+            { "x": 350, "y": 531 },
+            { "x": 429, "y": 531 },
+            { "x": 429, "y": 581 },
+            { "x": 350, "y": 582 }
+          ],
+          "row_start": 2,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 378, "y": 546 },
+                { "x": 400, "y": 546 },
+                { "x": 400, "y": 569 },
+                { "x": 378, "y": 569 }
+              ],
+              "word": "张"
+            }
+          ],
+          "col_start": 2,
+          "words": "张",
+          "row_end": 3,
+          "col_end": 3
+        },
+        {
+          "cell_location": [
+            { "x": 429, "y": 531 },
+            { "x": 542, "y": 530 },
+            { "x": 542, "y": 580 },
+            { "x": 429, "y": 581 }
+          ],
+          "row_start": 2,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 466, "y": 546 },
+                { "x": 505, "y": 546 },
+                { "x": 505, "y": 566 },
+                { "x": 466, "y": 566 }
+              ],
+              "word": "7210"
+            }
+          ],
+          "col_start": 3,
+          "words": "7210",
+          "row_end": 3,
+          "col_end": 4
+        },
+        {
+          "cell_location": [
+            { "x": 542, "y": 530 },
+            { "x": 699, "y": 529 },
+            { "x": 699, "y": 579 },
+            { "x": 542, "y": 580 }
+          ],
+          "row_start": 2,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 609, "y": 546 },
+                { "x": 630, "y": 546 },
+                { "x": 630, "y": 564 },
+                { "x": 609, "y": 564 }
+              ],
+              "word": "65"
+            }
+          ],
+          "col_start": 4,
+          "words": "65",
+          "row_end": 3,
+          "col_end": 5
+        },
+        {
+          "cell_location": [
+            { "x": 699, "y": 529 },
+            { "x": 891, "y": 528 },
+            { "x": 891, "y": 579 },
+            { "x": 699, "y": 579 }
+          ],
+          "row_start": 2,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 764, "y": 543 },
+                { "x": 825, "y": 543 },
+                { "x": 825, "y": 563 },
+                { "x": 764, "y": 563 }
+              ],
+              "word": "468650"
+            }
+          ],
+          "col_start": 5,
+          "words": "468650",
+          "row_end": 3,
+          "col_end": 6
+        },
+        {
+          "cell_location": [
+            { "x": 70, "y": 581 },
+            { "x": 170, "y": 582 },
+            { "x": 171, "y": 632 },
+            { "x": 70, "y": 631 }
+          ],
+          "row_start": 3,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 99, "y": 594 },
+                { "x": 140, "y": 594 },
+                { "x": 140, "y": 617 },
+                { "x": 99, "y": 617 }
+              ],
+              "word": "木枋"
+            }
+          ],
+          "col_start": 0,
+          "words": "木枋",
+          "row_end": 4,
+          "col_end": 1
+        },
+        {
+          "cell_location": [
+            { "x": 170, "y": 582 },
+            { "x": 350, "y": 582 },
+            { "x": 350, "y": 632 },
+            { "x": 171, "y": 632 }
+          ],
+          "row_start": 3,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 180, "y": 597 },
+                { "x": 241, "y": 597 },
+                { "x": 241, "y": 617 },
+                { "x": 180, "y": 617 }
+              ],
+              "word": "50*100"
+            }
+          ],
+          "col_start": 1,
+          "words": "50*100",
+          "row_end": 4,
+          "col_end": 2
+        },
+        {
+          "cell_location": [
+            { "x": 350, "y": 582 },
+            { "x": 429, "y": 581 },
+            { "x": 430, "y": 631 },
+            { "x": 350, "y": 632 }
+          ],
+          "row_start": 3,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 378, "y": 596 },
+                { "x": 401, "y": 596 },
+                { "x": 401, "y": 620 },
+                { "x": 379, "y": 620 }
+              ],
+              "word": "米"
+            }
+          ],
+          "col_start": 2,
+          "words": "米",
+          "row_end": 4,
+          "col_end": 3
+        },
+        {
+          "cell_location": [
+            { "x": 429, "y": 581 },
+            { "x": 542, "y": 580 },
+            { "x": 542, "y": 630 },
+            { "x": 430, "y": 631 }
+          ],
+          "row_start": 3,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 466, "y": 595 },
+                { "x": 506, "y": 595 },
+                { "x": 506, "y": 616 },
+                { "x": 466, "y": 616 }
+              ],
+              "word": "9103"
+            }
+          ],
+          "col_start": 3,
+          "words": "9103",
+          "row_end": 4,
+          "col_end": 4
+        },
+        {
+          "cell_location": [
+            { "x": 542, "y": 580 },
+            { "x": 699, "y": 579 },
+            { "x": 699, "y": 629 },
+            { "x": 542, "y": 630 }
+          ],
+          "row_start": 3,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 611, "y": 596 },
+                { "x": 630, "y": 596 },
+                { "x": 630, "y": 615 },
+                { "x": 611, "y": 615 }
+              ],
+              "word": "14"
+            }
+          ],
+          "col_start": 4,
+          "words": "14",
+          "row_end": 4,
+          "col_end": 5
+        },
+        {
+          "cell_location": [
+            { "x": 699, "y": 579 },
+            { "x": 891, "y": 579 },
+            { "x": 891, "y": 628 },
+            { "x": 699, "y": 629 }
+          ],
+          "row_start": 3,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 765, "y": 592 },
+                { "x": 825, "y": 592 },
+                { "x": 825, "y": 613 },
+                { "x": 765, "y": 613 }
+              ],
+              "word": "127442"
+            }
+          ],
+          "col_start": 5,
+          "words": "127442",
+          "row_end": 4,
+          "col_end": 6
+        },
+        {
+          "cell_location": [
+            { "x": 70, "y": 631 },
+            { "x": 171, "y": 632 },
+            { "x": 171, "y": 681 },
+            { "x": 70, "y": 680 }
+          ],
+          "row_start": 4,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 99, "y": 643 },
+                { "x": 140, "y": 644 },
+                { "x": 140, "y": 667 },
+                { "x": 99, "y": 667 }
+              ],
+              "word": "木枋"
+            }
+          ],
+          "col_start": 0,
+          "words": "木枋",
+          "row_end": 5,
+          "col_end": 1
+        },
+        {
+          "cell_location": [
+            { "x": 171, "y": 632 },
+            { "x": 350, "y": 632 },
+            { "x": 351, "y": 681 },
+            { "x": 171, "y": 681 }
+          ],
+          "row_start": 4,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 182, "y": 647 },
+                { "x": 252, "y": 647 },
+                { "x": 252, "y": 667 },
+                { "x": 182, "y": 667 }
+              ],
+              "word": "100*100"
+            }
+          ],
+          "col_start": 1,
+          "words": "100*100",
+          "row_end": 5,
+          "col_end": 2
+        },
+        {
+          "cell_location": [
+            { "x": 350, "y": 632 },
+            { "x": 430, "y": 631 },
+            { "x": 430, "y": 680 },
+            { "x": 351, "y": 681 }
+          ],
+          "row_start": 4,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 379, "y": 646 },
+                { "x": 401, "y": 646 },
+                { "x": 401, "y": 669 },
+                { "x": 379, "y": 669 }
+              ],
+              "word": "米"
+            }
+          ],
+          "col_start": 2,
+          "words": "米",
+          "row_end": 5,
+          "col_end": 3
+        },
+        {
+          "cell_location": [
+            { "x": 430, "y": 631 },
+            { "x": 542, "y": 630 },
+            { "x": 542, "y": 679 },
+            { "x": 430, "y": 680 }
+          ],
+          "row_start": 4,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 466, "y": 646 },
+                { "x": 506, "y": 646 },
+                { "x": 506, "y": 666 },
+                { "x": 466, "y": 666 }
+              ],
+              "word": "6652"
+            }
+          ],
+          "col_start": 3,
+          "words": "6652",
+          "row_end": 5,
+          "col_end": 4
+        },
+        {
+          "cell_location": [
+            { "x": 542, "y": 630 },
+            { "x": 699, "y": 629 },
+            { "x": 699, "y": 678 },
+            { "x": 542, "y": 679 }
+          ],
+          "row_start": 4,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 609, "y": 646 },
+                { "x": 630, "y": 646 },
+                { "x": 630, "y": 664 },
+                { "x": 609, "y": 664 }
+              ],
+              "word": "24"
+            }
+          ],
+          "col_start": 4,
+          "words": "24",
+          "row_end": 5,
+          "col_end": 5
+        },
+        {
+          "cell_location": [
+            { "x": 699, "y": 629 },
+            { "x": 891, "y": 628 },
+            { "x": 891, "y": 677 },
+            { "x": 699, "y": 678 }
+          ],
+          "row_start": 4,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 765, "y": 643 },
+                { "x": 824, "y": 643 },
+                { "x": 824, "y": 663 },
+                { "x": 765, "y": 663 }
+              ],
+              "word": "159648"
+            }
+          ],
+          "col_start": 5,
+          "words": "159648",
+          "row_end": 5,
+          "col_end": 6
+        },
+        {
+          "cell_location": [
+            { "x": 70, "y": 680 },
+            { "x": 171, "y": 681 },
+            { "x": 171, "y": 730 },
+            { "x": 70, "y": 729 }
+          ],
+          "row_start": 5,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 89, "y": 692 },
+                { "x": 150, "y": 692 },
+                { "x": 150, "y": 716 },
+                { "x": 89, "y": 716 }
+              ],
+              "word": "脚手板"
+            }
+          ],
+          "col_start": 0,
+          "words": "脚手板",
+          "row_end": 6,
+          "col_end": 1
+        },
+        {
+          "cell_location": [
+            { "x": 171, "y": 681 },
+            { "x": 351, "y": 681 },
+            { "x": 351, "y": 730 },
+            { "x": 171, "y": 730 }
+          ],
+          "row_start": 5,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 181, "y": 696 },
+                { "x": 252, "y": 696 },
+                { "x": 252, "y": 716 },
+                { "x": 181, "y": 716 }
+              ],
+              "word": "50*2000"
+            }
+          ],
+          "col_start": 1,
+          "words": "50*2000",
+          "row_end": 6,
+          "col_end": 2
+        },
+        {
+          "cell_location": [
+            { "x": 351, "y": 681 },
+            { "x": 430, "y": 680 },
+            { "x": 430, "y": 729 },
+            { "x": 351, "y": 730 }
+          ],
+          "row_start": 5,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 379, "y": 695 },
+                { "x": 401, "y": 695 },
+                { "x": 401, "y": 718 },
+                { "x": 379, "y": 718 }
+              ],
+              "word": "块"
+            }
+          ],
+          "col_start": 2,
+          "words": "块",
+          "row_end": 6,
+          "col_end": 3
+        },
+        {
+          "cell_location": [
+            { "x": 430, "y": 680 },
+            { "x": 542, "y": 679 },
+            { "x": 542, "y": 728 },
+            { "x": 430, "y": 729 }
+          ],
+          "row_start": 5,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 471, "y": 696 },
+                { "x": 499, "y": 696 },
+                { "x": 499, "y": 714 },
+                { "x": 471, "y": 714 }
+              ],
+              "word": "451"
+            }
+          ],
+          "col_start": 3,
+          "words": "451",
+          "row_end": 6,
+          "col_end": 4
+        },
+        {
+          "cell_location": [
+            { "x": 542, "y": 679 },
+            { "x": 699, "y": 678 },
+            { "x": 699, "y": 727 },
+            { "x": 542, "y": 728 }
+          ],
+          "row_start": 5,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 609, "y": 695 },
+                { "x": 629, "y": 695 },
+                { "x": 629, "y": 713 },
+                { "x": 609, "y": 713 }
+              ],
+              "word": "35"
+            }
+          ],
+          "col_start": 4,
+          "words": "35",
+          "row_end": 6,
+          "col_end": 5
+        },
+        {
+          "cell_location": [
+            { "x": 699, "y": 678 },
+            { "x": 891, "y": 677 },
+            { "x": 891, "y": 726 },
+            { "x": 699, "y": 727 }
+          ],
+          "row_start": 5,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 771, "y": 692 },
+                { "x": 819, "y": 692 },
+                { "x": 820, "y": 712 },
+                { "x": 771, "y": 712 }
+              ],
+              "word": "15785"
+            }
+          ],
+          "col_start": 5,
+          "words": "15785",
+          "row_end": 6,
+          "col_end": 6
+        },
+        {
+          "cell_location": [
+            { "x": 70, "y": 729 },
+            { "x": 171, "y": 730 },
+            { "x": 171, "y": 779 },
+            { "x": 70, "y": 779 }
+          ],
+          "row_start": 6,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 90, "y": 741 },
+                { "x": 150, "y": 741 },
+                { "x": 150, "y": 766 },
+                { "x": 90, "y": 766 }
+              ],
+              "word": "脚手板"
+            }
+          ],
+          "col_start": 0,
+          "words": "脚手板",
+          "row_end": 7,
+          "col_end": 1
+        },
+        {
+          "cell_location": [
+            { "x": 171, "y": 730 },
+            { "x": 351, "y": 730 },
+            { "x": 351, "y": 779 },
+            { "x": 171, "y": 779 }
+          ],
+          "row_start": 6,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 180, "y": 744 },
+                { "x": 252, "y": 744 },
+                { "x": 252, "y": 765 },
+                { "x": 180, "y": 765 }
+              ],
+              "word": "50*3000"
+            }
+          ],
+          "col_start": 1,
+          "words": "50*3000",
+          "row_end": 7,
+          "col_end": 2
+        },
+        {
+          "cell_location": [
+            { "x": 351, "y": 730 },
+            { "x": 430, "y": 729 },
+            { "x": 430, "y": 778 },
+            { "x": 351, "y": 779 }
+          ],
+          "row_start": 6,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 379, "y": 744 },
+                { "x": 401, "y": 744 },
+                { "x": 401, "y": 767 },
+                { "x": 379, "y": 767 }
+              ],
+              "word": "块"
+            }
+          ],
+          "col_start": 2,
+          "words": "块",
+          "row_end": 7,
+          "col_end": 3
+        },
+        {
+          "cell_location": [
+            { "x": 430, "y": 729 },
+            { "x": 542, "y": 728 },
+            { "x": 542, "y": 777 },
+            { "x": 430, "y": 778 }
+          ],
+          "row_start": 6,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 470, "y": 745 },
+                { "x": 500, "y": 745 },
+                { "x": 500, "y": 763 },
+                { "x": 470, "y": 763 }
+              ],
+              "word": "566"
+            }
+          ],
+          "col_start": 3,
+          "words": "566",
+          "row_end": 7,
+          "col_end": 4
+        },
+        {
+          "cell_location": [
+            { "x": 542, "y": 728 },
+            { "x": 699, "y": 727 },
+            { "x": 699, "y": 776 },
+            { "x": 542, "y": 777 }
+          ],
+          "row_start": 6,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 609, "y": 744 },
+                { "x": 629, "y": 744 },
+                { "x": 629, "y": 762 },
+                { "x": 609, "y": 762 }
+              ],
+              "word": "45"
+            }
+          ],
+          "col_start": 4,
+          "words": "45",
+          "row_end": 7,
+          "col_end": 5
+        },
+        {
+          "cell_location": [
+            { "x": 699, "y": 727 },
+            { "x": 891, "y": 726 },
+            { "x": 891, "y": 776 },
+            { "x": 699, "y": 776 }
+          ],
+          "row_start": 6,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 769, "y": 740 },
+                { "x": 820, "y": 740 },
+                { "x": 820, "y": 761 },
+                { "x": 769, "y": 761 }
+              ],
+              "word": "25470"
+            }
+          ],
+          "col_start": 5,
+          "words": "25470",
+          "row_end": 7,
+          "col_end": 6
+        },
+        {
+          "cell_location": [
+            { "x": 70, "y": 779 },
+            { "x": 171, "y": 779 },
+            { "x": 171, "y": 830 },
+            { "x": 71, "y": 828 }
+          ],
+          "row_start": 7,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 89, "y": 791 },
+                { "x": 151, "y": 791 },
+                { "x": 151, "y": 815 },
+                { "x": 89, "y": 815 }
+              ],
+              "word": "脚手板"
+            }
+          ],
+          "col_start": 0,
+          "words": "脚手板",
+          "row_end": 8,
+          "col_end": 1
+        },
+        {
+          "cell_location": [
+            { "x": 171, "y": 779 },
+            { "x": 351, "y": 779 },
+            { "x": 351, "y": 829 },
+            { "x": 171, "y": 830 }
+          ],
+          "row_start": 7,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 181, "y": 793 },
+                { "x": 252, "y": 793 },
+                { "x": 252, "y": 814 },
+                { "x": 181, "y": 814 }
+              ],
+              "word": "50*4000"
+            }
+          ],
+          "col_start": 1,
+          "words": "50*4000",
+          "row_end": 8,
+          "col_end": 2
+        },
+        {
+          "cell_location": [
+            { "x": 351, "y": 779 },
+            { "x": 430, "y": 778 },
+            { "x": 430, "y": 828 },
+            { "x": 351, "y": 829 }
+          ],
+          "row_start": 7,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 378, "y": 792 },
+                { "x": 400, "y": 792 },
+                { "x": 400, "y": 816 },
+                { "x": 378, "y": 816 }
+              ],
+              "word": "块"
+            }
+          ],
+          "col_start": 2,
+          "words": "块",
+          "row_end": 8,
+          "col_end": 3
+        },
+        {
+          "cell_location": [
+            { "x": 430, "y": 778 },
+            { "x": 542, "y": 777 },
+            { "x": 542, "y": 827 },
+            { "x": 430, "y": 828 }
+          ],
+          "row_start": 7,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 469, "y": 794 },
+                { "x": 499, "y": 794 },
+                { "x": 499, "y": 812 },
+                { "x": 469, "y": 812 }
+              ],
+              "word": "565"
+            }
+          ],
+          "col_start": 3,
+          "words": "565",
+          "row_end": 8,
+          "col_end": 4
+        },
+        {
+          "cell_location": [
+            { "x": 542, "y": 777 },
+            { "x": 699, "y": 776 },
+            { "x": 699, "y": 826 },
+            { "x": 542, "y": 827 }
+          ],
+          "row_start": 7,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 609, "y": 793 },
+                { "x": 629, "y": 793 },
+                { "x": 629, "y": 810 },
+                { "x": 609, "y": 810 }
+              ],
+              "word": "60"
+            }
+          ],
+          "col_start": 4,
+          "words": "60",
+          "row_end": 8,
+          "col_end": 5
+        },
+        {
+          "cell_location": [
+            { "x": 699, "y": 776 },
+            { "x": 891, "y": 776 },
+            { "x": 891, "y": 826 },
+            { "x": 699, "y": 826 }
+          ],
+          "row_start": 7,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 769, "y": 789 },
+                { "x": 820, "y": 789 },
+                { "x": 820, "y": 809 },
+                { "x": 769, "y": 809 }
+              ],
+              "word": "33900"
+            }
+          ],
+          "col_start": 5,
+          "words": "33900",
+          "row_end": 8,
+          "col_end": 6
+        },
+        {
+          "cell_location": [
+            { "x": 71, "y": 828 },
+            { "x": 541, "y": 826 },
+            { "x": 541, "y": 889 },
+            { "x": 71, "y": 889 }
+          ],
+          "row_start": 8,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 260, "y": 847 },
+                { "x": 348, "y": 847 },
+                { "x": 348, "y": 871 },
+                { "x": 260, "y": 871 }
+              ],
+              "word": "合计（元）"
+            }
+          ],
+          "col_start": 0,
+          "words": "合计（元）",
+          "row_end": 9,
+          "col_end": 4
+        },
+        {
+          "cell_location": [
+            { "x": 541, "y": 826 },
+            { "x": 891, "y": 825 },
+            { "x": 891, "y": 887 },
+            { "x": 541, "y": 889 }
+          ],
+          "row_start": 8,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 684, "y": 847 },
+                { "x": 745, "y": 847 },
+                { "x": 745, "y": 868 },
+                { "x": 684, "y": 868 }
+              ],
+              "word": "830895"
+            }
+          ],
+          "col_start": 4,
+          "words": "830895",
+          "row_end": 9,
+          "col_end": 6
+        },
+        {
+          "cell_location": [
+            { "x": 71, "y": 889 },
+            { "x": 541, "y": 889 },
+            { "x": 541, "y": 959 },
+            { "x": 71, "y": 960 }
+          ],
+          "row_start": 9,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 239, "y": 913 },
+                { "x": 367, "y": 913 },
+                { "x": 367, "y": 937 },
+                { "x": 239, "y": 937 }
+              ],
+              "word": "大写金额（元）"
+            }
+          ],
+          "col_start": 0,
+          "words": "大写金额（元）",
+          "row_end": 10,
+          "col_end": 4
+        },
+        {
+          "cell_location": [
+            { "x": 541, "y": 889 },
+            { "x": 891, "y": 887 },
+            { "x": 891, "y": 959 },
+            { "x": 541, "y": 959 }
+          ],
+          "row_start": 9,
+          "contents": [
+            {
+              "poly_location": [
+                { "x": 615, "y": 911 },
+                { "x": 813, "y": 910 },
+                { "x": 813, "y": 936 },
+                { "x": 615, "y": 937 }
+              ],
+              "word": "捌拾叁万零捌佰玖拾伍"
+            }
+          ],
+          "col_start": 4,
+          "words": "捌拾叁万零捌佰玖拾伍",
+          "row_end": 10,
+          "col_end": 6
+        }
+      ],
+      "table_location": [
+        { "x": 68, "y": 456 },
+        { "x": 891, "y": 456 },
+        { "x": 891, "y": 960 },
+        { "x": 68, "y": 960 }
+      ],
+      "footer": [
+        {
+          "location": [
+            { "x": 98, "y": 979 },
+            { "x": 873, "y": 979 },
+            { "x": 873, "y": 1005 },
+            { "x": 98, "y": 1005 }
+          ],
+          "words": "注：合同数量为预估数量，结算数量以实际收货数量为准。结算金额按照单价乘以结算数量"
+        },
+        {
+          "location": [
+            { "x": 99, "y": 1026 },
+            { "x": 872, "y": 1026 },
+            { "x": 872, "y": 1052 },
+            { "x": 99, "y": 1052 }
+          ],
+          "words": "计算。如实际结算总金额超出合同总金额，须另行签订补充协议，否则甲方有权不予支付超"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "words": {
+        "word": "买卖合同",
+        "words_location": { "left": 398, "height": 52, "width": 164, "top": 79 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "工程名称：防伪标识研发生产及装订项目（生产厂房）",
+        "words_location": { "left": 90, "height": 27, "width": 498, "top": 150 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "根据《中华人民共和国合同法》、《中华人民共和国建筑法》、《中华人民共和国产品",
+        "words_location": {
+          "left": 131,
+          "height": 26,
+          "width": 740,
+          "top": 292
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "质量法》、《建设工程质量管理条例》及其他相关法律法规的规定，甲乙双方在平等自愿的",
+        "words_location": { "left": 93, "height": 28, "width": 779, "top": 338 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "基础上经过充分协商，就甲方购买乙方 模板等相关事宜，达成如下协议：",
+        "words_location": { "left": 94, "height": 27, "width": 649, "top": 387 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "1、产品规格、数量、价格",
+        "words_location": { "left": 95, "height": 29, "width": 234, "top": 428 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "数量",
+        "words_location": { "left": 465, "height": 22, "width": 39, "top": 466 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "单价",
+        "words_location": { "left": 600, "height": 22, "width": 37, "top": 465 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "总价",
+        "words_location": { "left": 775, "height": 22, "width": 38, "top": 464 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "名称",
+        "words_location": { "left": 99, "height": 22, "width": 39, "top": 482 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "规格型号",
+        "words_location": { "left": 219, "height": 25, "width": 79, "top": 483 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "单位",
+        "words_location": { "left": 370, "height": 22, "width": 39, "top": 484 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "一次结构",
+        "words_location": { "left": 447, "height": 24, "width": 77, "top": 502 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "(元)",
+        "words_location": { "left": 600, "height": 21, "width": 38, "top": 502 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "(元)",
+        "words_location": { "left": 775, "height": 21, "width": 39, "top": 501 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "多层板",
+        "words_location": { "left": 90, "height": 25, "width": 59, "top": 542 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "915*1830*13.5",
+        "words_location": {
+          "left": 179,
+          "height": 21,
+          "width": 130,
+          "top": 547
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "张",
+        "words_location": { "left": 378, "height": 23, "width": 21, "top": 546 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "7210",
+        "words_location": { "left": 466, "height": 20, "width": 39, "top": 546 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "65",
+        "words_location": { "left": 609, "height": 18, "width": 20, "top": 546 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "468650",
+        "words_location": { "left": 764, "height": 20, "width": 60, "top": 543 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "木枋",
+        "words_location": { "left": 99, "height": 22, "width": 40, "top": 594 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "50*100",
+        "words_location": { "left": 180, "height": 20, "width": 61, "top": 597 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "米",
+        "words_location": { "left": 378, "height": 23, "width": 22, "top": 596 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "9103",
+        "words_location": { "left": 466, "height": 21, "width": 39, "top": 595 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "14",
+        "words_location": { "left": 611, "height": 18, "width": 18, "top": 596 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "127442",
+        "words_location": { "left": 765, "height": 21, "width": 59, "top": 592 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "木枋",
+        "words_location": { "left": 99, "height": 23, "width": 40, "top": 643 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "100*100",
+        "words_location": { "left": 182, "height": 20, "width": 69, "top": 647 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "米",
+        "words_location": { "left": 379, "height": 23, "width": 22, "top": 646 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "6652",
+        "words_location": { "left": 466, "height": 20, "width": 39, "top": 646 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "24",
+        "words_location": { "left": 609, "height": 18, "width": 21, "top": 646 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "159648",
+        "words_location": { "left": 765, "height": 19, "width": 58, "top": 643 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "脚手板",
+        "words_location": { "left": 89, "height": 24, "width": 60, "top": 692 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "50*2000",
+        "words_location": { "left": 181, "height": 20, "width": 71, "top": 696 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "块",
+        "words_location": { "left": 379, "height": 23, "width": 22, "top": 695 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "451",
+        "words_location": { "left": 471, "height": 18, "width": 28, "top": 696 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "35",
+        "words_location": { "left": 609, "height": 17, "width": 20, "top": 695 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "15785",
+        "words_location": { "left": 771, "height": 20, "width": 48, "top": 692 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "脚手板",
+        "words_location": { "left": 90, "height": 24, "width": 60, "top": 741 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "50*3000",
+        "words_location": { "left": 180, "height": 20, "width": 71, "top": 744 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "块",
+        "words_location": { "left": 379, "height": 23, "width": 22, "top": 744 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "566",
+        "words_location": { "left": 470, "height": 18, "width": 29, "top": 745 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "45",
+        "words_location": { "left": 609, "height": 17, "width": 20, "top": 744 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "25470",
+        "words_location": { "left": 769, "height": 20, "width": 50, "top": 740 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "脚手板",
+        "words_location": { "left": 89, "height": 24, "width": 61, "top": 791 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "50*4000",
+        "words_location": { "left": 181, "height": 20, "width": 71, "top": 793 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "块",
+        "words_location": { "left": 378, "height": 23, "width": 22, "top": 792 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "565",
+        "words_location": { "left": 469, "height": 17, "width": 29, "top": 794 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "60",
+        "words_location": { "left": 609, "height": 17, "width": 20, "top": 793 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "33900",
+        "words_location": { "left": 769, "height": 19, "width": 50, "top": 789 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "合计（元）",
+        "words_location": { "left": 260, "height": 23, "width": 88, "top": 847 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "830895",
+        "words_location": { "left": 684, "height": 21, "width": 60, "top": 847 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "大写金额（元）",
+        "words_location": {
+          "left": 239,
+          "height": 24,
+          "width": 127,
+          "top": 913
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "捌拾叁万零捌佰玖拾伍",
+        "words_location": {
+          "left": 615,
+          "height": 26,
+          "width": 198,
+          "top": 910
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "注：合同数量为预估数量，结算数量以实际收货数量为准。结算金额按照单价乘以结算数量",
+        "words_location": { "left": 98, "height": 26, "width": 774, "top": 979 }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "计算。如实际结算总金额超出合同总金额，须另行签订补充协议，否则甲方有权不予支付超",
+        "words_location": {
+          "left": 99,
+          "height": 25,
+          "width": 773,
+          "top": 1026
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "出部分货款。此报价含税费(13%的增值税专用票)、运费及装卸费用。",
+        "words_location": {
+          "left": 99,
+          "height": 25,
+          "width": 604,
+          "top": 1073
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "2、质量要求",
+        "words_location": {
+          "left": 97,
+          "height": 25,
+          "width": 116,
+          "top": 1120
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "2.1乙方所供应的产品必须符合GB/T17643-1998的质量要求",
+        "words_location": {
+          "left": 151,
+          "height": 25,
+          "width": 514,
+          "top": 1166
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "2.1.1乙方供应的产品必须符合北京市的相关验收标准、规范的要求。",
+        "words_location": {
+          "left": 152,
+          "height": 27,
+          "width": 590,
+          "top": 1211
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "2.1.2由于乙方所供应产品的质量引发的相应赔偿、损失等责任全部由乙方承担。",
+        "words_location": {
+          "left": 152,
+          "height": 28,
+          "width": 686,
+          "top": 1256
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "2.1.3、乙方负责编制标的物的现场施工方案。",
+        "words_location": {
+          "left": 153,
+          "height": 25,
+          "width": 391,
+          "top": 1305
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "2.2乙方向甲方交付的产品不符合质量要求的，甲方享有以下权利，同时有权按以下",
+        "words_location": {
+          "left": 154,
+          "height": 28,
+          "width": 718,
+          "top": 1348
+        }
+      },
+      "words_type": "print"
+    },
+    {
+      "words": {
+        "word": "第1页共6页",
+        "words_location": {
+          "left": 430,
+          "height": 22,
+          "width": 125,
+          "top": 1422
+        }
+      },
+      "words_type": "print"
+    }
+  ],
+  "table_num": 1,
+  "results_num": 65,
+  "log_id": 1803582285257129039
+}
