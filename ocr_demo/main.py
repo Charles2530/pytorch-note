@@ -8,12 +8,10 @@ import re
 from PIL import Image
 import io
 import numpy as np
-# 考虑隐私提交版未提供key
-API_KEY = ""
-SECRET_KEY = ""
-MODEL_API_KEY = ""
-MODEL_SECRET_KEY = ""
-
+API_KEY = "RTdKtOMpN1cPf3DiV3875mnm"
+SECRET_KEY = "sBTgMaYCX3XzWHQAPrLvk4qZXwTjahgF"
+MODEL_API_KEY = "qkjQhbwOaKcrzqAuWBDg2axq"
+MODEL_SECRET_KEY = "Ms5T5S6UrKx97hvU64wO4e3oL7xTXnI2"
 
 
 def get_access_token():
@@ -55,6 +53,7 @@ def ocr_analysis():
     url = "https://aip.baidubce.com/rest/2.0/ocr/v1/doc_analysis_office?access_token=" + \
         get_access_token()
     os.chdir(pathlib.Path(__file__).parent.joinpath('input_images').resolve())
+    response_text_map = {}
     for root, dirs, files in os.walk(os.getcwd()):
         for file in files:
             if file.endswith('.jpg') or file.endswith('.png'):
@@ -66,12 +65,9 @@ def ocr_analysis():
                 }
                 response = requests.request(
                     "POST", url, headers=headers, data=payload)
-                output_file = file.split('.')[0] + '.json'
-                output_path = pathlib.Path(__file__).parent.joinpath(
-                    output_file).resolve()
-                with open(output_path, 'w') as f:
-                    f.write(response.text)
-                print(file+" has been analyzed and saved to "+output_file)
+                print(file+" has been analyzed")
+                response_text_map[file.split('.')[0]] = response.text
+    return response_text_map
 
 
 def get_table_template(cells):
@@ -81,16 +77,16 @@ def get_table_template(cells):
     html_table = '<table border="1">\n'
     current_row = 0
     html_table += '<tr>'
-    for cell in sorted(cells,key=lambda x: (x['row_start'], x['col_start'])):
+    for cell in sorted(cells, key=lambda x: (x['row_start'], x['col_start'])):
         row_start = cell['row_start']
         row_end = cell['row_end']
         col_start = cell['col_start']
         col_end = cell['col_end']
         words = cell['words']
         print(row_start, row_end, col_start, col_end, words)
-        row_span = row_end - row_start 
-        col_span = col_end - col_start 
-        if(row_start > current_row):
+        row_span = row_end - row_start
+        col_span = col_end - col_start
+        if (row_start > current_row):
             html_table += '</tr>\n<tr>'
             current_row = row_start
         if row_span > 1 or col_span > 1:
@@ -101,7 +97,7 @@ def get_table_template(cells):
     return html_table
 
 
-def transit_json_to_html(html_path, data):
+def transit_json_to_html(data):
     """
     将json数据转换为html表格,并保存到html文件
     """
@@ -111,26 +107,25 @@ def transit_json_to_html(html_path, data):
         for table_data in table_data_lists:
             table = table_data.get('body')
             html_table_template += get_table_template(table) + '<br>'
-    with open(html_path, 'w') as f:
-        f.write(html_table_template)
+    return html_table_template
 
 
-def ocr_recover():
+def ocr_recover(ocr_analysis_map):
     """
     版面恢复主体代码
     """
     print('ocr_recover')
-    os.chdir(pathlib.Path(__file__).parent.joinpath('input_images').resolve())
-    for root, dirs, files in os.walk(os.getcwd()):
-        for file in files:
-            if file.endswith('.json'):
-                html_file = file.split('.')[0] + '.html'
-                with open(file, 'r') as f:
-                    data = json.load(f)
-                    html_path = pathlib.Path(__file__).parent.joinpath(
-                        "../output_html").joinpath(html_file).resolve()
-                    transit_json_to_html(html_path=html_path, data=data)
-                print(file+" has been recovered to "+html_file)
+    html_file_map = {}
+    for file, json_file in ocr_analysis_map.items():
+        html_file = file.split('.')[0] + '.html'
+        html_path = pathlib.Path(__file__).parent.joinpath(
+            '../output_html').joinpath(html_file).resolve()
+        html_data = transit_json_to_html(json.loads(json_file))
+        html_file_map[html_file] = html_data
+        with open(html_path, 'w') as f:
+            f.write(html_data)
+        print(file+" has been recovered to "+html_file)
+    return html_file_map
 
 
 def get_prompt(html_data):
@@ -161,94 +156,76 @@ def get_prompt(html_data):
     return str(result)
 
 
-def ocr_extract():
+def ocr_extract(html_file_map):
     """
     提取表格中的含税总金额并保存到json文件
     """
     print('ocr_extract')
-    os.chdir(pathlib.Path(__file__).parent.joinpath('output_html').resolve())
-    for root, dirs, files in os.walk(os.getcwd()):
-        for file in files:
-            if file.endswith('.html'):
-                with open(file, 'r') as f:
-                    html_data = f.read()
-                    prompt_response = get_prompt(html_data)
-                    prompt_file = file.split('.')[0] + '_prompt.json'
-                    prompt_path = pathlib.Path(__file__).parent.joinpath(
-                        "../output_prompt").joinpath(prompt_file).resolve()
-                    with open(prompt_path, 'w') as f:
-                        result_json = json.dumps(
-                            eval(prompt_response), ensure_ascii=False)
-                        f.write(result_json)
-                    print("finish prompt response and save to "+prompt_file)
+    os.chdir(pathlib.Path(__file__).parent.joinpath(
+        '../output_html').resolve())
+    ocr_prompt_map = {}
+    for file, html_data in html_file_map.items():
+        prompt_response = get_prompt(html_data)
+        ocr_prompt_map[file.split('.')[0]] = prompt_response
+        print(file+" finish prompt response")
+    return ocr_prompt_map
 
 
-def high_light_png():
+def high_light_png(ocr_analysis_map, ocr_prompt_map):
     """
     高亮图片中的含税总金额
     """
     print('high_light_png')
     input_img_path = pathlib.Path(
-        __file__).parent.joinpath('input_images').resolve()
-    prompt_path = pathlib.Path(__file__).parent.joinpath(
-        'output_prompt').resolve()
+        __file__).parent.joinpath('../input_images').resolve()
     output_img_path = pathlib.Path(
-        __file__).parent.joinpath('output_images').resolve()
+        __file__).parent.joinpath('../output_images').resolve()
     for root, dirs, files in os.walk(input_img_path):
-        for file in files:
-            if file.endswith('.jpg') or file.endswith('.png'):
-                with open(input_img_path.joinpath(file.split('.')[0]+'.json'), 'r') as f:
-                    with open(prompt_path.joinpath(
-                            file.split('.')[0]+'_prompt.json'), 'r') as p:
-                        prompt_number = json.load(p).get('含税总金额', 0)
-                        data = json.load(f)
-                        data_lists = data.get('results', [])
-                        if data_lists:
-                            for data in data_lists:
-                                result = data.get('words')
-                                if result:
-                                    if result.get('word') and re.match(r'^[0-9]+(\.[0-9]+)?$', result.get('word')):
-                                        if prompt_number == float(result.get('word')):
-                                            words_location = result.get(
-                                                'words_location')
-                                            with open(input_img_path.joinpath(file), 'rb') as img_file:
-                                                img_data = img_file.read()
-                                                image = Image.open(
-                                                    io.BytesIO(img_data))
-                                                img_array = np.array(image)
-                                                top = words_location.get(
-                                                    'top', 0)
-                                                left = words_location.get(
-                                                    'left', 0)
-                                                width = words_location.get(
-                                                    'width', 0)
-                                                height = words_location.get(
-                                                    'height', 0)
-                                                print(top, left, width,
-                                                      height, img_array.shape)
-                                                red = 255
-                                                green = 255
-                                                blue = 0
-                                                for i in range(top, top + height):
-                                                    for j in range(left, left + width):
-                                                        if img_array[i][j][0] > 150 and img_array[i][j][1] > 150 and img_array[i][j][2] > 150:
-                                                            img_array[i][j][0] = red
-                                                            img_array[i][j][1] = green
-                                                            img_array[i][j][2] = blue
-                                                    img = Image.fromarray(
-                                                        img_array)
-                                                img.save(output_img_path.joinpath(
-                                                    file.split('.')[0]+'_highlighted.'+file.split('.')[1]))
-                                                print(
-                                                    file+" has been high lighted")
+        for img_file in files:
+            if img_file.endswith('.jpg') or img_file.endswith('.png'):
+                file = img_file.split('.')[0]
+                with open(input_img_path.joinpath(img_file), 'rb') as img_file:
+                    img_data = img_file.read()
+                    image = Image.open(io.BytesIO(img_data))
+                    img_array = np.array(image)
+                    prompt_number = eval(
+                        ocr_prompt_map.get(file)).get('含税总金额', 0)
+                    data_lists = eval(ocr_analysis_map.get(file)
+                                      ).get('results', [])
+                    if data_lists:
+                        for data in data_lists:
+                            result = data.get('words')
+                            if result:
+                                if result.get('word') and re.match(r'^[0-9]+(\.[0-9]+)?$', result.get('word')):
+                                    if prompt_number == float(result.get('word')):
+                                        words_location = result.get(
+                                            'words_location')
+                                        top = words_location.get('top', 0)
+                                        left = words_location.get('left', 0)
+                                        width = words_location.get('width', 0)
+                                        height = words_location.get(
+                                            'height', 0)
+                                        red = 255
+                                        green = 255
+                                        blue = 0
+                                        for i in range(top, top + height):
+                                            for j in range(left, left + width):
+                                                if img_array[i][j][0] > 150 and img_array[i][j][1] > 150 and img_array[i][j][2] > 150:
+                                                    img_array[i][j][0] = red
+                                                    img_array[i][j][1] = green
+                                                    img_array[i][j][2] = blue
+                                        img = Image.fromarray(img_array)
+                                        img.save(output_img_path.joinpath(
+                                            file+'_highlighted.png'))
+                                        print(file+" has been high lighted")
 
 
 if __name__ == '__main__':
     # 版面分析OCR
-    ocr_analysis()
+    ocr_analysis_map = ocr_analysis()
     # 版面恢复
-    ocr_recover()
+    html_file_map = ocr_recover(ocr_analysis_map)
     # 使用Prompt提取信息
-    ocr_extract()
+    ocr_prompt_map = ocr_extract(html_file_map)
     # 高亮关键信息
-    high_light_png()
+    high_light_png(ocr_analysis_map, ocr_prompt_map)
